@@ -62,5 +62,10 @@ public class BaseDatos {
         rs = s.executeQuery(consulta);
         return rs;
     }
+       public static int eliminar(String tabla, String primaryKeyCol, String primaryKeyVal) throws SQLException {
+        s = conexion.createStatement();
+        int n= s.executeUpdate("delete from " + tabla + " where " + primaryKeyCol + "=" + "'" + primaryKeyVal + "';");
+        return n;
+    }
 
 }
