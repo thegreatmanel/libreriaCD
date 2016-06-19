@@ -72,6 +72,19 @@ public class BaseDatos {
                 + primaryKeyVal + "';");
         return n;
     }
-
-
+public static ResultSet buscar(String tabla, String[] campos,String colBusqueda,String valorBusqueda)throws SQLException{
+        ResultSet rs;
+        String consulta = "select ";
+        s = conexion.createStatement();
+        for (int i = 0; i < campos.length; i++) {
+            if (i == campos.length - 1) {
+                consulta += campos[i] + " from " + tabla;
+            } else {
+                consulta += campos[i] + ",";
+            }
+        }
+        consulta+=" where " + colBusqueda + " = " + "'" + valorBusqueda + "';";
+        rs = s.executeQuery(consulta);
+        return rs;
+    }
 }
