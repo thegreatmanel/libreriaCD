@@ -87,4 +87,8 @@ public static ResultSet buscar(String tabla, String[] campos,String colBusqueda,
         rs = s.executeQuery(consulta);
         return rs;
     }
+public static void Desconectar() throws SQLException{
+        s.close();
+        conexion.close();
+    }
 }
